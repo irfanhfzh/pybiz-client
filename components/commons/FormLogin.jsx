@@ -37,7 +37,7 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
 
     if (!value) {
       setError(
-        isPhoneLogin ? "Please enter phone number" : "Please enter email"
+        isPhoneLogin ? "Please enter phone number" : "Please enter email",
       );
       setIsLoading(false);
       return;
@@ -52,13 +52,13 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
     router.replace(
       `/verify-otp?loginMethod=${
         isPhoneLogin ? "WhatsApp" : "Email"
-      }&contactInfo=${value}`
+      }&contactInfo=${value}`,
     );
   };
 
   return (
     <div ref={ref} className="space-y-4">
-      <p className="mb-4 text-gray-600 text-sm">
+      <p className="mb-4 text-sm text-gray-600">
         {`OTP code will be sent to your ${isPhoneLogin ? "WhatsApp" : "Email"}`}
       </p>
 
@@ -77,24 +77,29 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
           />
         )}
 
-        <div className="mt-4 flex items-start gap-2">
-          <div className="flex items-center gap-2">
-            <Checkbox
-              id="terms"
-              checked={isAgreed}
-              onCheckedChange={(checked) => setIsAgreed(checked)}
-            />
-            <Label htmlFor="terms" className="text-sm">
-              I agree to the{" "}
+        <div className="mt-4 flex items-center gap-2">
+          <Checkbox
+            id="terms"
+            checked={isAgreed}
+            onCheckedChange={(checked) => setIsAgreed(checked)}
+          />
+          <Label
+            htmlFor="terms"
+            className="mobile-lg:flex-row mobile-lg:items-center flex flex-col items-start gap-1 text-sm whitespace-nowrap"
+          >
+            <div className="flex items-center gap-1">
+              <p>I agree to the</p>
               <a href="#" className="text-primary">
                 Terms & Conditions
-              </a>{" "}
-              and{" "}
+              </a>
+            </div>
+            <div className="flex items-center gap-1">
+              <p>and</p>
               <a href="#" className="text-primary">
                 Privacy Policy
               </a>
-            </Label>
-          </div>
+            </div>
+          </Label>
         </div>
 
         {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
@@ -118,7 +123,7 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
 
       <button
         onClick={onSwitchMethodAction}
-        className="flex w-full items-center justify-center gap-2 text-primary"
+        className="text-primary flex w-full items-center justify-center gap-2"
       >
         {isPhoneLogin ? (
           <Mail className="h-5 w-5" />

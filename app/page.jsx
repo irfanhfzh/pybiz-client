@@ -61,19 +61,19 @@ export default function Home() {
         <h1 className="text-primary text-lg font-semibold">
           Let&apos;s Start Transaction!
         </h1>
-        <div className="flex gap-2">
+        <div className="mobile-md:gap-2 flex gap-1">
           <button className="rounded-full p-1">
-            <Bell className="h-6 w-6" />
+            <Bell className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
           </button>
           <Link href="/profile?from=/" className="rounded-full p-1">
-            <CircleUserRound className="h-6 w-6" />
+            <CircleUserRound className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
           </Link>
         </div>
       </div>
 
       <div className="px-4">
-        <div className="border-primary flex items-center rounded-lg border bg-white py-4 pr-4">
-          <div className="flex-shrink-0">
+        <div className="border-primary flex items-center rounded-xl border bg-white py-4 pr-4">
+          <div className="shrink-0">
             <LogoPYBIZSquare />
           </div>
           <div className="flex flex-col gap-2">
@@ -94,68 +94,68 @@ export default function Home() {
       <div className="p-4">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-primary font-semibold">Transaction Features</h2>
-          <Settings className="h-6 w-6" />
+          <Settings className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="flex gap-4">
+          <div className="mobile-md:flex-row flex flex-col gap-4">
             {/* Row 1: Cashier (larger) with added content */}
-            <div className="w-1/2">
-              <div className="bg-gradient-primary flex h-full flex-col rounded-lg p-4 shadow-md">
+            <div className="mobile-md:w-1/2">
+              <div className="bg-gradient-primary flex h-full flex-col rounded-xl p-4 shadow-md">
                 <div className="mb-3 flex items-center justify-between text-white">
                   <h3 className="font-medium">Cashier</h3>
                   <ChevronRight className="h-6 w-6 font-medium" />
                 </div>
 
                 {/* Added stats summary */}
-                <div className="mb-6 text-white">
+                <div className="mb-4 text-white">
                   <div className="mb-1 text-xs opacity-80">
                     Today's transactions
                   </div>
-                  <div className="text-2xl font-semibold">24</div>
+                  <div className="text-lg font-semibold">24</div>
                 </div>
 
                 {/* Added quick actions */}
-                <div className="mb-6 flex gap-2">
-                  <div className="flex flex-1 items-center justify-center rounded-md bg-white/20 p-2">
+                <div className="mb-4 flex gap-2">
+                  <div className="flex flex-1 items-center justify-center rounded-xl bg-white/20 p-2">
                     <PlusCircle className="h-4 w-4 text-white" />
                   </div>
-                  <div className="flex flex-1 items-center justify-center rounded-md bg-white/20 p-2">
+                  <div className="flex flex-1 items-center justify-center rounded-xl bg-white/20 p-2">
                     <PlusCircle className="h-4 w-4 text-white" />
                   </div>
-                  <div className="flex flex-1 items-center justify-center rounded-md bg-white/20 p-2">
+                  <div className="flex flex-1 items-center justify-center rounded-xl bg-white/20 p-2">
                     <PlusCircle className="h-4 w-4 text-white" />
                   </div>
                 </div>
 
                 {/* Auto margin untuk mendorong button ke bawah */}
                 <div className="mt-auto">
-                  <button className="text-primary flex w-full items-center justify-center gap-1 rounded-lg bg-white p-2 text-center text-xs font-medium">
+                  <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium whitespace-nowrap">
                     <PlusCircle className="h-4 w-4" /> New Transaction
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="flex w-1/2 flex-col gap-4">
+            <div className="mobile-md:w-1/2 flex flex-col justify-between gap-4">
               {/* Bills card - dengan tinggi yang ditetapkan */}
-              <div className="bg-gradient-primary flex-1 rounded-lg p-4 shadow-md">
-                <div className="mb-3 flex items-center justify-between text-white">
+              <div className="bg-gradient-primary flex flex-col gap-4 rounded-xl p-4 shadow-md">
+                <div className="flex items-center justify-between text-white">
                   <h3 className="font-medium">Bills</h3>
                   <ChevronRight className="h-6 w-6 font-medium" />
                 </div>
-                <button className="text-primary flex w-full items-center justify-center gap-1 rounded-lg bg-white p-2 text-center text-xs font-medium">
+                <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
                   <PlusCircle className="h-4 w-4" /> New Bill
                 </button>
               </div>
 
               {/* Offers card - dengan tinggi yang ditetapkan */}
-              <div className="bg-gradient-primary flex-1 rounded-lg p-4 shadow-md">
-                <div className="mb-3 flex items-center justify-between text-white">
+              <div className="bg-gradient-primary flex flex-col gap-4 rounded-xl p-4 shadow-md">
+                <div className="flex items-center justify-between text-white">
                   <h3 className="font-medium">Offers</h3>
                   <ChevronRight className="h-6 w-6 font-medium" />
                 </div>
-                <button className="text-primary flex w-full items-center justify-center gap-1 rounded-lg bg-white p-2 text-center text-xs font-medium">
+                <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
                   <PlusCircle className="h-4 w-4" /> New Offer
                 </button>
               </div>
@@ -163,59 +163,53 @@ export default function Home() {
           </div>
 
           {/* Row 2: Rewards (full width) */}
-          <div className="bg-gradient-primary rounded-lg p-4 shadow-md">
-            <div className="mb-4 flex items-center justify-between text-white">
+          <div className="bg-gradient-primary rounded-xl p-4 shadow-md">
+            <div className="mobile-md:flex-row mobile-md:gap-0 mb-6 flex flex-col items-center justify-between gap-2 text-white">
               <h3 className="text-lg font-medium">My Rewards</h3>
               <div className="flex items-center gap-2">
-                <span className="text-sm opacity-80">Achieved</span>
-                <div className="rounded-full bg-white/20 px-3 py-1">
+                <span className="text-sm">Achieved</span>
+                <div className="text-primary rounded-full bg-white px-3 py-1 text-xs whitespace-nowrap">
                   5/6 Rewards
                 </div>
               </div>
             </div>
 
             {/* Progress Summary */}
-            <div className="mb-6 grid grid-cols-3 gap-4">
-              <div className="rounded-lg bg-white/10 p-3 text-center">
-                <div className="text-2xl font-bold text-yellow-400">1,420</div>
-                <div className="text-xs text-white opacity-80">
-                  Total Points
-                </div>
+            <div className="mb-4 grid grid-cols-3 gap-4 text-white">
+              <div className="rounded-xl bg-white/20 p-3 text-center">
+                <div className="text-lg font-bold">1,420</div>
+                <div className="text-xs opacity-80">Total Points</div>
               </div>
 
-              <div className="rounded-lg bg-white/10 p-3 text-center">
-                <div className="text-2xl font-bold text-blue-400">Gold</div>
-                <div className="text-xs text-white opacity-80">
-                  Current Tier
-                </div>
+              <div className="rounded-xl bg-white/20 p-3 text-center">
+                <div className="text-lg font-bold">Gold</div>
+                <div className="text-xs opacity-80">Current Tier</div>
               </div>
 
-              <div className="rounded-lg bg-white/10 p-3 text-center">
-                <div className="text-2xl font-bold text-green-400">580</div>
-                <div className="text-xs text-white opacity-80">
-                  To Next Tier
-                </div>
+              <div className="rounded-xl bg-white/20 p-3 text-center">
+                <div className="text-lg font-bold">580</div>
+                <div className="text-xs opacity-80">To Next Tier</div>
               </div>
             </div>
 
             {/* Quick Preview */}
-            <div className="mb-6 grid grid-cols-2 gap-2 md:grid-cols-3">
-              <div className="flex items-center gap-2 rounded-md bg-white/10 p-2 transition">
-                <Trophy className="h-5 w-5 text-yellow-400" />
-                <span className="text-sm text-white">Elite Shopper</span>
+            <div className="mb-6 grid grid-cols-2 gap-2 text-white md:grid-cols-3">
+              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
+                <Trophy className="h-5 w-5" />
+                <span className="text-sm">Elite Shopper</span>
               </div>
-              <div className="flex items-center gap-2 rounded-md bg-white/10 p-2 transition">
-                <Star className="h-5 w-5 text-blue-400" />
-                <span className="text-sm text-white">1000 Club</span>
+              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
+                <Star className="h-5 w-5" />
+                <span className="text-sm">1000 Club</span>
               </div>
-              <div className="flex items-center gap-2 rounded-md bg-white/10 p-2 transition">
-                <Gift className="h-5 w-5 text-green-400" />
-                <span className="text-sm text-white">Birthday</span>
+              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
+                <Gift className="h-5 w-5" />
+                <span className="text-sm">Birthday</span>
               </div>
             </div>
 
             {/* View Details CTA */}
-            <button className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 p-2 text-center text-sm font-medium text-white transition">
+            <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
               <ArrowRight className="h-4 w-4" />
               View All Reward Details
             </button>
@@ -223,11 +217,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative h-40 w-full p-4">
+      <div className="relative h-40 w-full px-4 py-2">
         <Image
           src={BannerImage}
           alt="Banner Promo"
-          className="h-full w-full rounded-lg object-cover"
+          className="h-full w-full rounded-xl object-cover"
           priority
         />
         <div className="absolute inset-0 left-10 flex flex-col items-start justify-center text-white">
@@ -236,7 +230,7 @@ export default function Home() {
             <br />
             Banner Here
           </p>
-          <button className="rounded-lg px-3 py-2 text-xs font-medium text-white outline-1 outline-white">
+          <button className="rounded-xl px-3 py-2 text-xs font-medium text-white outline-1 outline-white">
             Claim Promos
           </button>
         </div>
@@ -266,8 +260,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-gradient-primary mx-4 my-2 flex items-center gap-2 rounded-lg px-3 py-2 text-white">
-        <div className="flex-shrink-0">
+      <div className="bg-gradient-primary mx-4 my-2 flex items-center gap-2 rounded-xl px-3 py-2 text-white">
+        <div className="shrink-0">
           <Badge />
         </div>
         <p className="text-xs">
@@ -286,7 +280,7 @@ export default function Home() {
                   alt={item.title}
                   width={173}
                   height={115}
-                  className="h-[115px] w-full rounded-lg object-cover object-right"
+                  className="h-[115px] w-full rounded-xl object-cover object-right"
                   priority
                 />
                 <div className="mt-3">

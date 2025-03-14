@@ -19,7 +19,7 @@ function InputPhoneNumber({ value, onChangeAction }) {
   return (
     <div className="space-y-2" dir="ltr">
       <RPNInput.default
-        className="flex rounded-lg shadow-sm shadow-black/5"
+        className="flex rounded-xl shadow-sm shadow-black/5"
         international
         defaultCountry="ID"
         flagComponent={FlagComponent}
@@ -93,7 +93,7 @@ const CountrySelect = ({ value, onChange, options }) => {
         </div>
 
         {isOpen && (
-          <div className="border-input bg-background absolute top-full left-0 z-50 mt-1 w-[100px] overflow-hidden rounded-md border shadow-lg">
+          <div className="border-input bg-background absolute top-full left-0 z-50 mt-1 w-[100px] overflow-hidden rounded-xl border shadow-lg">
             {filteredOptions.map((option) => {
               if (!option.value || !COUNTRY_DATA[option.value]) return null;
               return (
@@ -109,7 +109,7 @@ const CountrySelect = ({ value, onChange, options }) => {
                     setIsOpen(false);
                   }}
                 >
-                  <span className="w-5 overflow-hidden rounded-sm">
+                  <span className="w-5 overflow-hidden rounded-xs">
                     <FlagComponent
                       country={option.value}
                       countryName={option.value}
@@ -132,7 +132,7 @@ const FlagComponent = ({ country, countryName }) => {
   const Flag = flags[country];
 
   return (
-    <span className="w-5 overflow-hidden rounded-sm">
+    <span className="w-5 overflow-hidden rounded-xs">
       {Flag ? (
         <Flag title={countryName} />
       ) : (

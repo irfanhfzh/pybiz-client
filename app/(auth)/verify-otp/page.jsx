@@ -90,15 +90,15 @@ export default function OTPPage() {
       </button>
 
       <div className="-mt-8 flex flex-1 flex-col items-center justify-center px-2">
-        <h1 className="mb-3 text-xl font-semibold">Enter OTP Code</h1>
-        <p className="mb-1 text-center text-sm text-muted-foreground">
+        <h1 className="mb-3 text-lg font-semibold">Enter OTP Code</h1>
+        <p className="text-muted-foreground mb-1 text-center text-sm">
           OTP code has been sent via {loginMethod} to
         </p>
-        <p className="mb-6 text-center text-sm text-muted-foreground">
+        <p className="text-muted-foreground mb-6 text-center text-sm">
           {loginMethod === "WhatsApp" ? `+${contactInfo}` : contactInfo}
         </p>
         {loginMethod == "Email" && (
-          <p className="mb-6 text-center text-sm text-muted-foreground">
+          <p className="text-muted-foreground mb-6 text-center text-sm">
             Check spam if the email is not in your inbox.
           </p>
         )}
@@ -118,7 +118,7 @@ export default function OTPPage() {
                 }}
                 onChange={(e) => handleChange(e.target, idx)}
                 onKeyDown={(e) => handleBackspace(e, idx)}
-                className="h-10 w-10 border-2 text-center text-base [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                className="h-10 w-10 [appearance:textfield] border-2 text-center text-base [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               />
             ))}
           </div>
@@ -127,13 +127,13 @@ export default function OTPPage() {
             <p className="mb-4 text-center text-sm text-red-500">{error}</p>
           )}
 
-          <Button type="submit" className="w-full bg-primary">
+          <Button type="submit" className="bg-primary w-full">
             Verify OTP
           </Button>
         </form>
 
         <div className="mt-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             {"Didn't receive OTP? "}
             {timeLeft > 0 ? (
               <span>

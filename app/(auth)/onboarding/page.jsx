@@ -9,6 +9,8 @@ import {
   FileText,
   HeartIcon as UserHeart,
   BookText,
+  CirclePercent,
+  BadgePercent,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +34,7 @@ const features = [
     id: "offers",
     title: "Offers",
     description: "Send and track offers to customers",
-    icon: <UserHeart className="h-6 w-6" />,
+    icon: <BadgePercent className="h-6 w-6" />,
     iconColor: "text-blue-500",
   },
   {
@@ -112,7 +114,7 @@ export default function BusinessSetup() {
             <ArrowLeft className="h-6 w-6" />
           </button>
 
-          <h1 className="w-full text-center text-2xl font-semibold">
+          <h1 className="w-full text-center text-lg font-semibold">
             {step === 1 ? "Choose Features" : "Business Information"}
           </h1>
         </div>
@@ -153,7 +155,7 @@ export default function BusinessSetup() {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className={`relative rounded-lg border-2 p-4 transition-colors ${
+              className={`relative rounded-xl border-2 p-4 transition-colors ${
                 selectedFeatures.includes(feature.id)
                   ? "border-primary"
                   : "border-muted"
@@ -162,7 +164,7 @@ export default function BusinessSetup() {
             >
               <div className="flex items-start gap-4">
                 <div
-                  className={`${feature.iconColor} bg-background rounded-lg p-2`}
+                  className={`${feature.iconColor} bg-background rounded-xl p-2`}
                 >
                   {feature.icon}
                 </div>

@@ -66,7 +66,7 @@ export default function CreateAccessCodePage() {
   };
 
   return (
-    <div className="h-full bg-background p-6">
+    <div className="bg-background h-full p-6">
       <div className="flex h-full w-full max-w-sm flex-col justify-between">
         <div className="flex flex-col items-center gap-6">
           <div className="flex w-full items-center justify-between">
@@ -103,7 +103,7 @@ export default function CreateAccessCodePage() {
                       ? showPin
                         ? "bg-background text-primary"
                         : "bg-primary"
-                      : "border-2 border-primary"
+                      : "border-primary border-2"
                   }`}
                 >
                   {currentPin[i] && showPin && (
@@ -113,11 +113,11 @@ export default function CreateAccessCodePage() {
               ))}
           </div>
 
-          {error && <p className="text-sm text-destructive">{error}</p>}
+          {error && <p className="text-destructive text-sm">{error}</p>}
 
           <button
             onClick={() => setShowPin(!showPin)}
-            className="flex items-center gap-2 text-primary"
+            className="text-primary flex items-center gap-2"
           >
             {showPin ? (
               <>
@@ -155,7 +155,7 @@ export default function CreateAccessCodePage() {
             </button>
             <button
               onClick={handleBackspace}
-              className="flex h-12 w-12 items-center justify-center text-2xl font-light"
+              className="flex h-12 w-12 items-center justify-center text-lg font-light"
             >
               ⌫
             </button>

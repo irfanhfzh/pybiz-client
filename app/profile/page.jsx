@@ -81,7 +81,7 @@ export default function Profile() {
                 Premium
               </span>
             </p>
-            <button className="text-primary flex w-fit items-center rounded-lg bg-white px-3 py-2 text-xs">
+            <button className="text-primary flex w-fit items-center rounded-xl bg-white px-3 py-2 text-xs">
               <Gem className="mr-2 h-4 w-4" />
               <span className="font-semibold">Learn about Membership</span>
               <ChevronRight className="h-4 w-4" />

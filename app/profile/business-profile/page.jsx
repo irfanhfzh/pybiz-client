@@ -10,21 +10,21 @@ const BusinessProfile = () => {
     <>
       <BackNavigation title="Business Profile" />
 
-      <div className="px-4 pb-4 pt-2 flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 px-4 pt-2 pb-4">
         <div className="relative">
           <Image
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
             alt="Profile"
             width={100}
             height={100}
-            className="rounded-full border-2 border-primary"
+            className="border-primary rounded-full border-2"
             priority
           />
-          <button className="absolute bottom-0 right-0 rounded-full bg-primary p-1.5 text-white">
+          <button className="bg-primary absolute right-0 bottom-0 rounded-full p-1.5 text-white">
             <Camera className="h-4 w-4" />
           </button>
         </div>
-        <div className="text-white px-4 py-2 bg-primary flex gap-3 items-center rounded-lg">
+        <div className="bg-primary flex items-center gap-3 rounded-xl px-4 py-2 text-white">
           <CircleAlert className="h-6 w-6" />
           <p className="text-xs">
             Please update your logo and business information to display your
@@ -33,12 +33,12 @@ const BusinessProfile = () => {
         </div>
       </div>
 
-      <div className="w-full h-1 bg-slate-200"></div>
+      <div className="h-1 w-full bg-slate-200"></div>
 
-      <div className="px-4 pb-4 pt-2">
+      <div className="px-4 pt-2 pb-4">
         <div className="flex items-center justify-between">
-          <h1 className="font-semibold text-lg">Business Information</h1>
-          <SquarePen className="h-4 w-4 text-primary" />
+          <h1 className="text-lg font-semibold">Business Information</h1>
+          <SquarePen className="text-primary h-4 w-4" />
         </div>
         <InformationText
           title="Business Name"
@@ -64,12 +64,12 @@ const BusinessProfile = () => {
         />
       </div>
 
-      <div className="w-full h-1 bg-slate-200"></div>
+      <div className="h-1 w-full bg-slate-200"></div>
 
-      <div className="px-4 pb-4 pt-2">
+      <div className="px-4 pt-2 pb-4">
         <div className="flex items-center justify-between">
-          <h1 className="font-semibold text-lg">Business Address</h1>
-          <SquarePen className="h-4 w-4 text-primary" />
+          <h1 className="text-lg font-semibold">Business Address</h1>
+          <SquarePen className="text-primary h-4 w-4" />
         </div>
         <InformationText
           title="Business Address"

@@ -28,7 +28,7 @@ export default function Income() {
           </TooltipProvider>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-semibold">Rp 15.222.810</span>
+          <span className="text-lg font-semibold">Rp 15.222.810</span>
           <Settings className="h-5 w-5" />
         </div>
       </div>
@@ -46,7 +46,7 @@ export default function Income() {
         </Button>
       </div>
 
-      <div className="rounded-lg border p-8 text-center">
+      <div className="rounded-xl border p-8 text-center">
         <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
           <Settings className="h-8 w-8 text-gray-400" />
         </div>

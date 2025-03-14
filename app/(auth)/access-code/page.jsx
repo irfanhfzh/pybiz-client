@@ -59,7 +59,7 @@ export default function AccessCodePage() {
         }`}
       >
         <div className="flex w-full flex-col items-center space-y-8">
-          <h1 className="text-primary-foreground text-2xl font-medium">
+          <h1 className="text-primary-foreground text-lg font-medium">
             Enter Access Code
           </h1>
 
@@ -107,7 +107,7 @@ export default function AccessCodePage() {
             </button>
             <button
               onClick={handleBackspace}
-              className="text-primary-foreground/80 flex h-12 w-12 items-center justify-center text-2xl font-light"
+              className="text-primary-foreground/80 flex h-12 w-12 items-center justify-center text-lg font-light"
             >
               ⌫
             </button>
