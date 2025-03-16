@@ -1,8 +1,8 @@
 const InformationText = ({ title, description }) => {
   return (
-    <div className="flex flex-col mobile-md:flex-row items-start text-sm mt-3 w-full gap-4">
-      <p className="text-gray-400 w-fit shrink-0">{title}</p>
-      <p className="text-left mobile-md:text-right flex-1 break-words">
+    <div className="mobile-md:flex-row mt-3 flex w-full flex-col items-start gap-4 text-sm">
+      <p className="w-fit shrink-0 text-slate-400">{title}</p>
+      <p className="mobile-md:text-right flex-1 text-left break-words">
         {description}
       </p>
     </div>

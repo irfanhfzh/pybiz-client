@@ -285,7 +285,7 @@ export default function Home() {
                 />
                 <div className="mt-3">
                   <h3 className="mb-1 text-sm font-medium">{item.title}</h3>
-                  <p className="line-clamp-2 text-xs text-ellipsis text-gray-600">
+                  <p className="line-clamp-2 text-xs text-ellipsis text-slate-600">
                     {item.description}
                   </p>
                 </div>

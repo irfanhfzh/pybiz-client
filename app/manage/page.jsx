@@ -16,7 +16,7 @@ import BannerWomanImage from "@/public/images/banner-woman.webp";
 export default function Manage() {
   return (
     <>
-      <div className="bg-gradient-primary mb-2 flex h-fit w-full flex-col items-start gap-6 rounded-br-xl rounded-bl-xl p-4 text-white">
+      <div className="bg-gradient-primary mb-2 flex h-fit w-full flex-col items-start gap-6 rounded-br-xl rounded-bl-xl px-4 py-6 text-white">
         <div className="flex w-full items-center gap-4">
           <Image
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
@@ -26,9 +26,9 @@ export default function Manage() {
             className="shrink-0 rounded-full border-2 border-white object-cover"
             priority
           />
-          <div className="flex flex-col gap-1">
+          <div className="flex w-full flex-col gap-1">
             <h1 className="text-lg leading-6 font-semibold text-white">
-              PocketYou Indonesia Asia Malaysia Singapore
+              PocketYou Asia Indonesia Malaysia Singapore
             </h1>
             <div className="mobile-md:flex-row mobile-md:items-center mobile-md:gap-0 mt-1 flex flex-col items-start justify-between gap-2">
               <p className="text-sm text-white">
@@ -64,7 +64,7 @@ export default function Manage() {
           <div className="flex w-full items-center justify-evenly gap-2">
             <a
               href="#"
-              className="flex items-center gap-2 overflow-hidden rounded-xl bg-white p-2 text-xs text-[#676767]"
+              className="flex items-center gap-2 overflow-hidden rounded-xl bg-white p-2 text-xs text-slate-600"
             >
               <p className="inline-flex truncate whitespace-nowrap">
                 https://sites.pybiz.com/kedaimakanmak...
@@ -130,13 +130,19 @@ export default function Manage() {
         </div>
 
         <div className="mb-4 space-y-4">
-          <button className="flex w-full items-center gap-3 rounded-xl border p-4">
-            <ChartNoAxesCombined className="text-primary h-6 w-6" />
-            <span className="text-primary">Sales</span>
+          <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
+            <div className="flex items-center gap-2">
+              <ChartNoAxesCombined className="h-6 w-6" />
+              <span>Sales</span>
+            </div>
+            <ChevronRight className="h-6 w-6" />
           </button>
-          <button className="flex w-full items-center gap-3 rounded-xl border p-4">
-            <FileText className="text-primary h-6 w-6" />
-            <span className="text-primary">View Reports</span>
+          <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
+            <div className="flex items-center gap-2">
+              <FileText className="h-6 w-6" />
+              <span>View Reports</span>
+            </div>
+            <ChevronRight className="h-6 w-6" />
           </button>
         </div>
 

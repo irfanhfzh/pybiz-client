@@ -68,7 +68,7 @@ const BottomNavigation = () => {
                   className={`mt-1 transition-colors duration-75 ${
                     isActive
                       ? "text-primary text-[13px] font-semibold"
-                      : "text-xs font-normal text-gray-500"
+                      : "text-xs font-normal text-slate-600"
                   }`}
                 >
                   {item.name}

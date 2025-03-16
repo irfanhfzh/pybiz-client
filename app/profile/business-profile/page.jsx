@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import InformationText from "@/components/commons/InformationText";
 import BackNavigation from "@/components/layouts/BackNavigation";
 import { Camera, CircleAlert, SquarePen } from "lucide-react";
-import Image from "next/image";
 
 const BusinessProfile = () => {
   return (

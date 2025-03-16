@@ -73,7 +73,7 @@ export default function Profile() {
         <div className="flex h-full justify-between gap-2">
           <div className="flex flex-col justify-between">
             <h1 className="text-lg font-semibold text-white">
-              PocketYou Asia Indonesia Malaysia
+              PocketYou Asia Indonesia Malaysia Singapore
             </h1>
             <p className="mt-1 mb-6 text-sm text-white">
               Retail Store{" "}

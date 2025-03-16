@@ -93,7 +93,7 @@ const SplashScreen = () => {
           <div></div>
           <LogoPYBIZSquareTitle />
           <div className="mb-6 text-center">
-            <p className="text-xs font-medium text-gray-600">
+            <p className="text-xs font-medium text-slate-600">
               POWERED BY POCKETYOU ASIA
             </p>
           </div>
@@ -107,7 +107,7 @@ const SplashScreen = () => {
             : "pointer-events-none opacity-0 transition-opacity duration-300"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#5c327e] via-[#9c55d5] to-[#60dff0]" />
+        <div className="from-secondary via-primary to-accent absolute inset-0 bg-gradient-to-b" />
 
         <div className="absolute inset-0">
           <Image

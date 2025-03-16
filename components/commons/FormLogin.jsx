@@ -58,7 +58,7 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
 
   return (
     <div ref={ref} className="space-y-4">
-      <p className="mb-4 text-sm text-gray-600">
+      <p className="mb-4 text-sm text-slate-600">
         {`OTP code will be sent to your ${isPhoneLogin ? "WhatsApp" : "Email"}`}
       </p>
 
@@ -107,7 +107,7 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
         <Button
           type="submit"
           className={`mt-4 w-full text-base ${
-            isAgreed ? "bg-primary text-white" : "bg-gray-200 text-gray-400"
+            isAgreed ? "bg-primary text-white" : "bg-slate-200 text-slate-400"
           }`}
           disabled={!isAgreed || isLoading}
         >
@@ -117,7 +117,7 @@ const FormLogin = forwardRef(({ isPhoneLogin, onSwitchMethodAction }, ref) => {
 
       <div className="my-6 flex items-center justify-center">
         <div className="flex-1 border-t"></div>
-        <span className="px-4 text-gray-500">or</span>
+        <span className="px-4 text-slate-400">or</span>
         <div className="flex-1 border-t"></div>
       </div>
 
