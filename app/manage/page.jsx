@@ -38,7 +38,7 @@ export default function Manage() {
                 </span>
               </p>
               <Link
-                href="/profile?from=/manage"
+                href="/profile"
                 className="text-xs whitespace-nowrap underline"
               >
                 View Profile &gt;
@@ -82,7 +82,7 @@ export default function Manage() {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="mobile-md:p-4 p-2">
         <div className="mb-6 space-y-4">
           <div className="mobile-md:flex-row flex flex-col gap-4">
             <div className="bg-gradient-primary mobile-md:w-3/5 flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md">
@@ -127,23 +127,6 @@ export default function Manage() {
               </button>
             </div>
           </div>
-        </div>
-
-        <div className="mb-4 space-y-4">
-          <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
-            <div className="flex items-center gap-2">
-              <ChartNoAxesCombined className="h-6 w-6" />
-              <span>Sales</span>
-            </div>
-            <ChevronRight className="h-6 w-6" />
-          </button>
-          <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
-            <div className="flex items-center gap-2">
-              <FileText className="h-6 w-6" />
-              <span>View Reports</span>
-            </div>
-            <ChevronRight className="h-6 w-6" />
-          </button>
         </div>
 
         <div className="relative h-28 w-full">

@@ -1,57 +1,28 @@
-"use client";
-
-import { useSearchParams, useRouter } from "next/navigation";
+import React from "react";
 import { ArrowLeft } from "lucide-react";
-import { useEffect, useState } from "react";
 
-const BackNavigation = ({ title }) => {
-  const searchParams = useSearchParams();
-
-  const router = useRouter();
-  const [navigationHistory, setNavigationHistory] = useState([]);
-
-  const from = searchParams.get("from") || "/";
-
-  const pathHistory = searchParams.get("pathHistory");
-
-  useEffect(() => {
-    if (pathHistory) {
-      try {
-        const decodedHistory = JSON.parse(decodeURIComponent(pathHistory));
-        setNavigationHistory(decodedHistory);
-      } catch (error) {
-        console.error("Failed to parse path history:", error);
-        setNavigationHistory([from]);
-      }
-    } else {
-      setNavigationHistory([from]);
-    }
-  }, [from, pathHistory]);
-
+const BackNavigation = ({ title, onBack, rightElement, className = "" }) => {
   const handleBack = () => {
-    if (navigationHistory.length > 1) {
-      const previousPaths = [...navigationHistory];
-      const previousPath = previousPaths[previousPaths.length - 1];
-
-      const newPathHistory = encodeURIComponent(JSON.stringify(previousPaths));
-
-      if (previousPath.includes("?")) {
-        router.push(`${previousPath}&pathHistory=${newPathHistory}`);
-      } else {
-        router.push(`${previousPath}?pathHistory=${newPathHistory}`);
-      }
+    if (onBack) {
+      onBack();
     } else {
-      router.push(from);
+      window.history.back();
     }
   };
 
   return (
-    <div className="flex items-center justify-between gap-2 p-4">
-      <button onClick={handleBack} className="rounded-full p-1">
+    <div className={`flex items-center justify-between gap-2 p-4 ${className}`}>
+      <button
+        onClick={handleBack}
+        className="rounded-full p-1 transition-colors"
+        aria-label="Go back"
+      >
         <ArrowLeft className="h-6 w-6" />
       </button>
-      <h1 className="text-lg font-semibold">{title}</h1>
-      <div className="h-8 w-8"></div>
+
+      <h1 className="truncate text-lg font-semibold">{title}</h1>
+
+      {rightElement ? rightElement : <div className="h-8 w-8"></div>}
     </div>
   );
 };

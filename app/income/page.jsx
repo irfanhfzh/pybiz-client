@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { isMobile } from "react-device-detect";
 import {
@@ -16,6 +17,7 @@ import {
   Zap,
   Smartphone,
   ArrowDown,
+  FileText,
 } from "lucide-react";
 import {
   Tooltip,
@@ -26,8 +28,42 @@ import {
 import BannerWomanImage from "@/public/images/banner-woman.webp";
 
 export default function Income() {
+  const [activeTab, setActiveTab] = useState("income");
+
+  // Data transaksi
+  const transactions = [
+    {
+      id: 1,
+      type: "Top Up",
+      amount: "RM 1.000.000,00",
+      date: "15 Mar",
+      icon: ArrowUpToLine,
+    },
+    {
+      id: 2,
+      type: "Mobile Prepaid",
+      amount: "Rp 100.000.000,00",
+      date: "8 Mar",
+      icon: Smartphone,
+    },
+    {
+      id: 3,
+      type: "Internet",
+      amount: "RM 1.000.000,00",
+      date: "5 Mar",
+      icon: Wifi,
+    },
+    {
+      id: 4,
+      type: "Electricity",
+      amount: "Rp 100.000.000,00",
+      date: "3 Mar",
+      icon: Zap,
+    },
+  ];
+
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="mobile-md:gap-4 mobile-md:p-4 flex flex-col gap-2 p-2">
       <div className="bg-gradient-primary flex flex-col gap-2 rounded-xl p-4 text-white">
         <div className="flex items-center gap-1.5">
           <h2 className="text-sm font-medium">Active Balance</h2>
@@ -43,7 +79,7 @@ export default function Income() {
           </TooltipProvider>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-lg font-semibold">RM 15,222.00</span>
+          <span className="text-lg font-semibold">RM 19.600.000,00</span>
           <Settings className="h-5 w-5" />
         </div>
         <div className="mobile-md:justify-center mobile-md:gap-8 mt-2 flex items-center justify-around">
@@ -91,11 +127,15 @@ export default function Income() {
         </div>
       </div>
 
-      <div className="p-2">
-        {/* <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
-          <Settings className="h-8 w-8 text-slate-400" />
+      <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
+        <div className="flex items-center gap-2">
+          <FileText className="h-6 w-6" />
+          <span>View Reports</span>
         </div>
-        <p className="text-slate-600">No transactions history yet</p> */}
+        <ChevronRight className="h-6 w-6" />
+      </button>
+
+      <div className="p-2">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-primary text-left font-semibold">March</p>
@@ -110,107 +150,108 @@ export default function Income() {
             </div>
           </div>
         </div>
-        <div className="mt-4">
-          <div className="mb-4 grid grid-cols-2 gap-2">
-            {/* Income Card with Arrow */}
-            <div className="relative flex items-center rounded-lg bg-purple-500 px-2 py-4 shadow-sm">
-              {/* Arrow down indicator */}
-              <div className="absolute -bottom-2.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-t-[12px] border-r-[12px] border-l-[12px] border-t-purple-500 border-r-transparent border-l-transparent"></div>
 
-              <div className="mr-3 rounded-full bg-green-400 p-2">
+        <div className="mt-4">
+          <div className="mb-4 flex h-20 w-full items-center gap-2">
+            {/* Income Tab - can be active or inactive */}
+            <div
+              className={`relative flex h-full flex-1 items-center justify-center rounded-lg ${
+                activeTab === "income"
+                  ? "bg-primary px-2 py-4"
+                  : "flex-col border bg-white"
+              }`}
+              onClick={() => setActiveTab("income")}
+            >
+              {/* Arrow indicator - only show if active */}
+              {activeTab === "income" && (
+                <div className="border-t-primary absolute -bottom-2.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-t-[12px] border-r-[12px] border-l-[12px] border-r-transparent border-l-transparent"></div>
+              )}
+
+              <div
+                className={`rounded-full ${activeTab === "income" ? "mr-2" : "mb-1.5"} bg-green-400 p-2`}
+              >
                 <ArrowDown className="h-5 w-5 text-white" />
               </div>
               <div>
-                <div className="text-sm font-medium text-white">Income</div>
-                <div className="font-bold whitespace-nowrap text-white">
-                  RM 976,000.00
+                <div
+                  className={`text-sm font-medium ${activeTab === "income" ? "text-white" : "text-slate-600"}`}
+                >
+                  Income
+                </div>
+                <div
+                  className={`font-semibold whitespace-nowrap ${activeTab === "income" ? "text-white" : "text-slate-800"}`}
+                >
+                  {activeTab === "income" ? "RM 19.600.000,00" : ""}
                 </div>
               </div>
             </div>
 
-            {/* Outcome Card */}
-            <div className="flex items-center rounded-lg border bg-white px-2 py-4">
-              <div className="mr-3 rounded-full bg-orange-400 p-2">
+            {/* Outcome Tab - can be active or inactive */}
+            <div
+              className={`relative flex h-full flex-1 items-center justify-center rounded-lg ${
+                activeTab === "outcome"
+                  ? "bg-primary px-2 py-4"
+                  : "flex-col border bg-white"
+              }`}
+              onClick={() => setActiveTab("outcome")}
+            >
+              {/* Arrow indicator - only show if active */}
+              {activeTab === "outcome" && (
+                <div className="border-t-primary absolute -bottom-2.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-t-[12px] border-r-[12px] border-l-[12px] border-r-transparent border-l-transparent"></div>
+              )}
+
+              <div
+                className={`rounded-full ${activeTab === "outcome" ? "mr-2" : "mb-1.5"} bg-orange-400 p-2`}
+              >
                 <ArrowUp className="h-5 w-5 text-white" />
               </div>
               <div>
-                <div className="text-sm font-medium text-gray-600">Outcome</div>
-                <div className="font-bold whitespace-nowrap text-gray-800">
-                  RM 97,600.00
+                <div
+                  className={`text-sm font-medium ${activeTab === "outcome" ? "text-white" : "text-slate-600"}`}
+                >
+                  Outcome
+                </div>
+                <div
+                  className={`font-semibold whitespace-nowrap ${activeTab === "outcome" ? "text-white" : "text-slate-800"}`}
+                >
+                  {activeTab === "outcome" ? "Rp 197.600.000,00" : ""}
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Top Up Card */}
-          <div className="mb-2 flex items-start justify-between rounded-lg border bg-white p-4">
-            <div className="flex items-center">
-              <div className="bg-primary/80 mr-3 rounded-full p-2">
-                <ArrowUpToLine className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-medium text-gray-600">Top Up</div>
-                <div className="font-bold whitespace-nowrap text-gray-800">
-                  RM 100,000.00
+          {/* Filtered Transactions List based on active tab */}
+          {transactions
+            .filter((t) => {
+              // Filter logic - simple example:
+              // Top Up is income, everything else is outcome
+              if (activeTab === "income") {
+                return t.type === "Top Up";
+              } else {
+                return t.type !== "Top Up";
+              }
+            })
+            .map((transaction) => (
+              <div
+                key={transaction.id}
+                className="mb-2 flex items-start justify-between rounded-lg border bg-white p-4"
+              >
+                <div className="flex items-center">
+                  <div className="bg-primary/80 mr-3 rounded-full p-2">
+                    <transaction.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-slate-600">
+                      {transaction.type}
+                    </div>
+                    <div className="font-semibold whitespace-nowrap text-slate-800">
+                      {transaction.amount}
+                    </div>
+                  </div>
                 </div>
+                <p className="text-xs text-slate-400">{transaction.date}</p>
               </div>
-            </div>
-            <p className="text-xs font-medium text-gray-400">15 Mar 2025</p>
-          </div>
-
-          {/* Mobile Prepaid Card */}
-          <div className="mb-2 flex items-start justify-between rounded-lg border bg-white p-4">
-            <div className="flex items-center">
-              <div className="bg-primary/80 mr-3 rounded-full p-2">
-                <Smartphone className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-medium text-gray-600">
-                  Mobile Prepaid
-                </div>
-                <div className="font-bold whitespace-nowrap text-gray-800">
-                  RM 1,000.00
-                </div>
-              </div>
-            </div>
-            <p className="text-xs font-medium text-gray-400">8 Mar 2025</p>
-          </div>
-
-          {/* Internet Card */}
-          <div className="mb-2 flex items-start justify-between rounded-lg border bg-white p-4">
-            <div className="flex items-center">
-              <div className="bg-primary/80 mr-3 rounded-full p-2">
-                <Wifi className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-medium text-gray-600">
-                  Internet
-                </div>
-                <div className="font-bold whitespace-nowrap text-gray-800">
-                  RM 10,000.00
-                </div>
-              </div>
-            </div>
-            <p className="text-xs font-medium text-gray-400">5 Mar 2025</p>
-          </div>
-
-          {/* Electricity Card */}
-          <div className="mb-2 flex items-start justify-between rounded-lg border bg-white p-4">
-            <div className="flex items-center">
-              <div className="bg-primary/80 mr-3 rounded-full p-2">
-                <Zap className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-medium text-gray-600">
-                  Electricity
-                </div>
-                <div className="font-bold whitespace-nowrap text-gray-800">
-                  RM 5,000.00
-                </div>
-              </div>
-            </div>
-            <p className="text-xs font-medium text-gray-400">3 Mar 2025</p>
-          </div>
+            ))}
         </div>
       </div>
     </div>

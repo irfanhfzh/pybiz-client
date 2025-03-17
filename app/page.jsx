@@ -5,11 +5,14 @@ import Link from "next/link";
 import {
   ArrowRight,
   Bell,
+  ChartNoAxesColumn,
   ChevronRight,
   CircleUserRound,
+  Gem,
   Gift,
   PlusCircle,
   Settings,
+  ShoppingBag,
   Star,
   Trophy,
 } from "lucide-react";
@@ -57,7 +60,7 @@ const news = [
 export default function Home() {
   return (
     <>
-      <div className="flex items-center justify-between p-4">
+      <div className="mobile-md:p-4 flex items-center justify-between p-2">
         <h1 className="text-primary text-lg font-semibold">
           Let&apos;s Start Transaction!
         </h1>
@@ -65,13 +68,13 @@ export default function Home() {
           <button className="rounded-full p-1">
             <Bell className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
           </button>
-          <Link href="/profile?from=/" className="rounded-full p-1">
+          <Link href="/profile" className="rounded-full p-1">
             <CircleUserRound className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
           </Link>
         </div>
       </div>
 
-      <div className="px-4">
+      <div className="mobile-md:px-4 px-2">
         <div className="border-primary flex items-center rounded-xl border bg-white py-4 pr-4">
           <div className="shrink-0">
             <LogoPYBIZSquare />
@@ -91,7 +94,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="mobile-md:p-4 p-2">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-primary font-semibold">Transaction Features</h2>
           <Settings className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
@@ -163,48 +166,61 @@ export default function Home() {
           </div>
 
           {/* Row 2: Rewards (full width) */}
-          <div className="bg-gradient-primary rounded-xl p-4 shadow-md">
+          <div className="bg-gradient-primary mobile-md:p-4 rounded-xl p-2 shadow-md">
             <div className="mobile-md:flex-row mobile-md:gap-0 mb-6 flex flex-col items-center justify-between gap-2 text-white">
               <h3 className="text-lg font-medium">My Rewards</h3>
               <div className="flex items-center gap-2">
                 <span className="text-sm">Achieved</span>
                 <div className="text-primary rounded-full bg-white px-3 py-1 text-xs whitespace-nowrap">
-                  5/6 Rewards
+                  1/3 Rewards
                 </div>
               </div>
             </div>
 
             {/* Progress Summary */}
-            <div className="mb-4 grid grid-cols-3 gap-4 text-white">
-              <div className="rounded-xl bg-white/20 p-3 text-center">
-                <div className="text-lg font-bold">1,420</div>
-                <div className="text-xs opacity-80">Total Points</div>
+            <div className="mb-4 flex flex-col gap-4 text-white">
+              <div className="flex items-center justify-between rounded-xl bg-white/20 p-4">
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1 text-sm font-semibold">
+                    <ShoppingBag className="h-4 w-4 font-medium" />
+                    Sales Claim
+                  </div>
+                  <div className="flex items-start gap-1 text-lg font-bold">
+                    <span className="text-xs font-light">Rp</span>
+                    <span>1.145.500.000,00</span>
+                  </div>
+                </div>
+                <ChevronRight className="h-6 w-6 font-medium" />
               </div>
 
-              <div className="rounded-xl bg-white/20 p-3 text-center">
-                <div className="text-lg font-bold">Gold</div>
-                <div className="text-xs opacity-80">Current Tier</div>
+              <div className="flex items-center justify-between rounded-xl bg-white/20 p-4">
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1 text-sm font-semibold">
+                    <ChartNoAxesColumn className="h-4 w-4 font-medium" />
+                    Incentive Reward
+                  </div>
+                  <div className="flex items-start gap-1 text-lg font-bold">
+                    <span className="text-xs font-light">Rp</span>
+                    <span>1.324.000</span>
+                    <span className="-ms-1 mb-1 self-end text-xs font-light">
+                      ,0000000000
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight className="h-6 w-6 font-medium" />
               </div>
 
-              <div className="rounded-xl bg-white/20 p-3 text-center">
-                <div className="text-lg font-bold">580</div>
-                <div className="text-xs opacity-80">To Next Tier</div>
-              </div>
-            </div>
-
-            {/* Quick Preview */}
-            <div className="mb-6 grid grid-cols-2 gap-2 text-white md:grid-cols-3">
-              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
-                <Trophy className="h-5 w-5" />
-                <span className="text-sm">Elite Shopper</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
-                <Star className="h-5 w-5" />
-                <span className="text-sm">1000 Club</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-white/20 p-2 transition">
-                <Gift className="h-5 w-5" />
-                <span className="text-sm">Birthday</span>
+              <div className="flex items-center justify-between rounded-xl bg-white/20 p-4">
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1 text-sm font-semibold">
+                    <Gem className="h-4 w-4 font-medium" />
+                    Gold Bar
+                  </div>
+                  <div className="flex items-center gap-1 text-lg font-bold">
+                    1000.00 <span className="text-xs font-light">Gram</span>
+                  </div>
+                </div>
+                <ChevronRight className="h-6 w-6 font-medium" />
               </div>
             </div>
 
@@ -217,7 +233,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative h-40 w-full px-4 py-2">
+      <div className="mobile-md:px-4 relative h-40 w-full px-2 py-2">
         <Image
           src={BannerImage}
           alt="Banner Promo"
@@ -236,7 +252,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="mobile-md:p-4 p-2">
         <h2 className="text-primary mb-4 font-semibold">
           Sell Digital Products Now
         </h2>
@@ -260,7 +276,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-gradient-primary mx-4 my-2 flex items-center gap-2 rounded-xl px-3 py-2 text-white">
+      <div className="bg-gradient-primary mobile-md:mx-4 mx-2 my-2 flex items-center gap-2 rounded-xl px-3 py-2 text-white">
         <div className="shrink-0">
           <Badge />
         </div>
@@ -269,7 +285,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="p-4">
+      <div className="mobile-md:p-4 p-2">
         <h2 className="text-primary mb-4 font-semibold">News</h2>
         <div>
           <div className="no-scrollbar flex gap-4 overflow-x-auto">

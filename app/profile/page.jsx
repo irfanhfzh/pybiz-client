@@ -112,7 +112,7 @@ export default function Profile() {
               className={`flex w-full items-center justify-between ${isLastItem ? "" : "border-b"} p-4`}
             >
               <div className="flex items-center gap-4">
-                <Icon className="h-6 w-6 text-gray-600" />
+                <Icon className="h-6 w-6 text-slate-600" />
                 <span>{item.label}</span>
               </div>
               <ChevronRight className="h-4 w-4" />
