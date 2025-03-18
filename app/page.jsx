@@ -1,21 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
+  BadgePercent,
   Bell,
+  BookText,
   ChartNoAxesColumn,
+  Check,
   ChevronRight,
   CircleUserRound,
+  FileText,
   Gem,
-  Gift,
   PlusCircle,
+  Receipt,
   Settings,
   ShoppingBag,
-  Star,
-  Trophy,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import LogoPYBIZSquare from "@/public/logos/logo-pybiz-square.svg";
 import Badge from "@/public/icons/badge.svg";
 import Smartphone from "@/public/icons/smartphone.svg";
@@ -24,6 +27,7 @@ import Voucher from "@/public/icons/voucher.svg";
 import Electricity from "@/public/icons/electricity.svg";
 import Dashboard from "@/public/icons/dashboard.svg";
 import BannerImage from "@/public/images/banner.webp";
+import LogoPYBIZWhiteTitle from "@/public/logos/logo-pybiz-white-title.svg";
 
 const digitalProducts = [
   { name: "Mobile Prepaid", icon: Smartphone },
@@ -57,25 +61,64 @@ const news = [
   },
 ];
 
+const features = [
+  {
+    id: 1,
+    title: "Cashier",
+    icon: <Receipt className="h-6 w-6" />,
+    iconColor: "text-teal-500",
+  },
+  {
+    id: 2,
+    title: "Bills",
+    icon: <FileText className="h-6 w-6" />,
+    iconColor: "text-orange-500",
+  },
+  {
+    id: 3,
+    title: "Offers",
+    icon: <BadgePercent className="h-6 w-6" />,
+    iconColor: "text-blue-500",
+  },
+  {
+    id: 4,
+    title: "Digital Products",
+    icon: <BookText className="h-6 w-6" />,
+    iconColor: "text-lime-600",
+  },
+];
+
 export default function Home() {
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const [showTrxSettings, setShowTrxSettings] = useState(false);
+
+  const toggleFeature = (featureId) => {
+    setSelectedFeatures((prev) =>
+      prev.includes(featureId)
+        ? prev.filter((id) => id !== featureId)
+        : [...prev, featureId],
+    );
+  };
+
   return (
     <>
-      <div className="mobile-md:p-4 flex items-center justify-between p-2">
-        <h1 className="text-primary text-lg font-semibold">
-          Let&apos;s Start Transaction!
-        </h1>
-        <div className="mobile-md:gap-2 flex gap-1">
-          <button className="rounded-full p-1">
-            <Bell className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
-          </button>
-          <Link href="/profile" className="rounded-full p-1">
-            <CircleUserRound className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
-          </Link>
+      <div className="bg-gradient-primary mb-2 flex flex-col gap-4 rounded-br-xl rounded-bl-xl px-4 py-6">
+        <div className="flex items-center justify-between">
+          <LogoPYBIZWhiteTitle className="w-1/2" />
+          <h1 className="text-lg font-semibold text-white">
+            Let&apos;s Start Transaction!
+          </h1>
+          <div className="mobile-md:gap-2 flex gap-1 text-white">
+            <button className="rounded-full p-1">
+              <Bell className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
+            </button>
+            <Link href="/profile" className="rounded-full p-1">
+              <CircleUserRound className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <div className="mobile-md:px-4 px-2">
-        <div className="border-primary flex items-center rounded-xl border bg-white py-4 pr-4">
+        <div className="flex items-center rounded-xl bg-white py-4 pr-4 shadow-md">
           <div className="shrink-0">
             <LogoPYBIZSquare />
           </div>
@@ -97,7 +140,10 @@ export default function Home() {
       <div className="mobile-md:p-4 p-2">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-primary font-semibold">Transaction Features</h2>
-          <Settings className="mobile-md:h-6 mobile-md:w-6 h-5 w-5" />
+          <Settings
+            className="mobile-md:h-6 mobile-md:w-6 h-5 w-5"
+            onClick={() => setShowTrxSettings(true)}
+          />
         </div>
 
         <div className="flex flex-col gap-4">
@@ -178,7 +224,7 @@ export default function Home() {
             </div>
 
             {/* Progress Summary */}
-            <div className="mb-4 flex flex-col gap-4 text-white">
+            <div className="flex flex-col gap-4 text-white">
               <div className="flex items-center justify-between rounded-xl bg-white/20 p-4">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1 text-sm font-semibold">
@@ -223,12 +269,6 @@ export default function Home() {
                 <ChevronRight className="h-6 w-6 font-medium" />
               </div>
             </div>
-
-            {/* View Details CTA */}
-            <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
-              <ArrowRight className="h-4 w-4" />
-              View All Reward Details
-            </button>
           </div>
         </div>
       </div>
@@ -307,6 +347,67 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {showTrxSettings && (
+        <div className="fixed inset-0 bg-black/50 transition-opacity duration-300" />
+      )}
+
+      <div
+        className={`bg-background fixed inset-x-0 bottom-0 z-40 transform rounded-t-3xl p-4 shadow-lg transition-transform duration-300 ease-in-out ${
+          showTrxSettings ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
+        <div className="space-y-2">
+          <h2 className="text-center text-lg font-semibold">
+            Choose your transaction features
+          </h2>
+          <p className="text-muted-foreground text-center text-sm">
+            At least one feature must be displayed on your homepage.
+          </p>
+          <div className="my-4 space-y-4 overflow-y-auto py-2">
+            {features.map((feature) => (
+              <div
+                key={feature.id}
+                className={`relative rounded-xl border-2 p-4 transition-colors ${
+                  selectedFeatures.includes(feature.id)
+                    ? "border-primary"
+                    : "border-muted"
+                }`}
+                onClick={() => toggleFeature(feature.id)}
+              >
+                <div className="flex w-full items-center justify-between gap-4">
+                  <div
+                    className={`${feature.iconColor} bg-background flex items-center gap-2 rounded-xl p-2`}
+                  >
+                    {feature.icon}
+                    <h3 className="font-medium">{feature.title}</h3>
+                  </div>
+                  <div
+                    className={`flex h-6 w-6 items-center justify-center rounded-full border-2 ${
+                      selectedFeatures.includes(feature.id)
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-muted"
+                    }`}
+                  >
+                    {selectedFeatures.includes(feature.id) && (
+                      <Check className="h-4 w-4" />
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-2">
+            <Button
+              variant="default"
+              onClick={() => setShowTrxSettings(false)}
+              className="bg-primary text=white w-full"
+            >
+              Save
+            </Button>
           </div>
         </div>
       </div>

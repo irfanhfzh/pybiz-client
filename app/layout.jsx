@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
         className={`${inter.className} flex h-dvh items-center justify-center antialiased`}
       >
         <DisableTabKey />
+        {/* <main className="h-full w-full max-w-md overflow-y-auto shadow-md"> */}
         <main className="h-full w-full max-w-md overflow-y-auto pb-[86px] shadow-md">
           <SplashScreen />
           <PWAInstallPrompt />

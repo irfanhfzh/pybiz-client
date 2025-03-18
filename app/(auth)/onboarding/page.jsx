@@ -149,7 +149,7 @@ export default function BusinessSetup() {
 
       {step === 1 && (
         <div
-          className="my-4 space-y-4 overflow-y-auto"
+          className="my-4 space-y-4 overflow-y-auto py-2"
           style={{ maxHeight: contentHeight }}
         >
           {features.map((feature) => (
@@ -193,7 +193,7 @@ export default function BusinessSetup() {
 
       {step === 2 && (
         <div
-          className="my-4 space-y-6 overflow-y-auto"
+          className="my-4 space-y-6 overflow-y-auto p-2"
           style={{ maxHeight: contentHeight }}
         >
           <div className="space-y-2">

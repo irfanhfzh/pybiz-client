@@ -70,33 +70,33 @@ export default function Profile() {
       <BackNavigation title="Account" />
 
       <div className="bg-gradient-primary mx-4 mt-2 mb-4 rounded-2xl p-6">
-        <div className="flex h-full justify-between gap-2">
-          <div className="flex flex-col justify-between">
-            <h1 className="text-lg font-semibold text-white">
-              PocketYou Asia Indonesia Malaysia Singapore
-            </h1>
-            <p className="mt-1 mb-6 text-sm text-white">
-              Retail Store{" "}
-              <span className="bg text-primary ml-[2px] rounded-xl bg-white px-2 py-[2px] text-xs font-semibold">
-                Premium
-              </span>
-            </p>
-            <button className="text-primary flex w-fit items-center rounded-xl bg-white px-3 py-2 text-xs">
-              <Gem className="mr-2 h-4 w-4" />
-              <span className="font-semibold">Learn about Membership</span>
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-          <div>
+        <div className="flex h-full flex-col justify-between gap-2">
+          <div className="flex items-start gap-2">
+            <div className="flex flex-col justify-between">
+              <h1 className="text-lg font-semibold text-white">
+                PocketYou Asia Indonesia Malaysia Singapore
+              </h1>
+              <p className="mt-1 mb-6 text-sm text-white">
+                Retail Store{" "}
+                <span className="bg text-primary ml-[2px] rounded-xl bg-white px-2 py-[2px] text-xs font-semibold">
+                  Premium
+                </span>
+              </p>
+            </div>
             <Image
               src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
               alt="Profile"
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               className="rounded-full border-2 border-white"
               priority
             />
           </div>
+          <button className="text-primary mobile-md:w-fit flex w-full items-center justify-between rounded-xl bg-white px-3 py-2 text-xs">
+            <Gem className="mr-2 h-4 w-4" />
+            <span className="font-semibold">Learn about Membership</span>
+            <ChevronRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
 

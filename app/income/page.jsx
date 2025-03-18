@@ -42,7 +42,7 @@ export default function Income() {
     {
       id: 2,
       type: "Mobile Prepaid",
-      amount: "Rp 100.000.000,00",
+      amount: "RM 100.000.000,00",
       date: "8 Mar",
       icon: Smartphone,
     },
@@ -56,14 +56,14 @@ export default function Income() {
     {
       id: 4,
       type: "Electricity",
-      amount: "Rp 100.000.000,00",
+      amount: "RM 100.000.000,00",
       date: "3 Mar",
       icon: Zap,
     },
   ];
 
   return (
-    <div className="mobile-md:gap-4 mobile-md:p-4 flex flex-col gap-2 p-2">
+    <div className="mobile-md:p-4 flex flex-col gap-4 p-2">
       <div className="bg-gradient-primary flex flex-col gap-2 rounded-xl p-4 text-white">
         <div className="flex items-center gap-1.5">
           <h2 className="text-sm font-medium">Active Balance</h2>
@@ -129,8 +129,8 @@ export default function Income() {
 
       <button className="text-primary flex w-full items-center justify-between rounded-xl border p-4">
         <div className="flex items-center gap-2">
-          <FileText className="h-6 w-6" />
-          <span>View Reports</span>
+          <FileText className="h-5 w-5" />
+          <span className="text-sm">View Income Reports</span>
         </div>
         <ChevronRight className="h-6 w-6" />
       </button>
@@ -157,7 +157,7 @@ export default function Income() {
             <div
               className={`relative flex h-full flex-1 items-center justify-center rounded-lg ${
                 activeTab === "income"
-                  ? "bg-primary px-2 py-4"
+                  ? "bg-primary mobile-md:px-4 px-2 py-4"
                   : "flex-col border bg-white"
               }`}
               onClick={() => setActiveTab("income")}
@@ -190,7 +190,7 @@ export default function Income() {
             <div
               className={`relative flex h-full flex-1 items-center justify-center rounded-lg ${
                 activeTab === "outcome"
-                  ? "bg-primary px-2 py-4"
+                  ? "bg-primary mobile-md:px-4 px-2 py-4"
                   : "flex-col border bg-white"
               }`}
               onClick={() => setActiveTab("outcome")}
@@ -214,7 +214,7 @@ export default function Income() {
                 <div
                   className={`font-semibold whitespace-nowrap ${activeTab === "outcome" ? "text-white" : "text-slate-800"}`}
                 >
-                  {activeTab === "outcome" ? "Rp 197.600.000,00" : ""}
+                  {activeTab === "outcome" ? "RM 197.600.000,00" : ""}
                 </div>
               </div>
             </div>

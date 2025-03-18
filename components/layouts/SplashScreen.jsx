@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import BGSplashScreen from "@/public/images/bg-splashscreen.webp";
-import LogoPYBIZWhite from "@/public/logos/logo-pybiz-white.svg";
+import LogoPYBIZWhiteTitle from "@/public/logos/logo-pybiz-white-title.svg";
 import LogoPYBIZSquareTitle from "@/public/logos/logo-pybiz-square-title.svg";
 
 const SplashScreen = () => {
@@ -131,7 +131,7 @@ const SplashScreen = () => {
           >
             <div className="mt-32 flex flex-col items-center justify-start">
               <div className="w-48 space-y-2">
-                <LogoPYBIZWhite />
+                <LogoPYBIZWhiteTitle />
                 <div className="flex w-full justify-center">
                   <p className="text-xs font-medium -tracking-[0.5px] text-white">
                     POWERED BY POCKETYOU ASIA

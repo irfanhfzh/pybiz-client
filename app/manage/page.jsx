@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FileText,
-  PlusCircle,
-  Share2,
-  Download,
-  ChevronRight,
-  ChartNoAxesCombined,
-} from "lucide-react";
+import { PlusCircle, Share2, Download, ChevronRight } from "lucide-react";
 import Handshake3D from "@/public/icons/handshake-3d.svg";
 import BannerWomanImage from "@/public/images/banner-woman.webp";
 
