@@ -2,23 +2,27 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { PlusCircle, Share2, Download, ChevronRight } from "lucide-react";
 import Handshake3D from "@/public/icons/handshake-3d.svg";
 import BannerWomanImage from "@/public/images/banner-woman.webp";
+import BlankProfilePicture from "@/public/images/blank-profile-picture.png";
 
 export default function Manage() {
+  const router = useRouter();
+
   return (
     <>
       <div className="bg-gradient-primary mb-2 flex h-fit w-full flex-col items-start gap-6 rounded-br-xl rounded-bl-xl px-4 py-6 text-white">
         <div className="flex w-full items-center gap-4">
-          <Image
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
-            alt="Profile"
-            width={64}
-            height={64}
-            className="shrink-0 rounded-full border-2 border-white object-cover"
-            priority
-          />
+          <div className="bg-gradient-border-primary shrink-0 rounded-full p-[3px]">
+            <Image
+              src={BlankProfilePicture}
+              alt="Profile Picture"
+              className="mobile-md:w-[72px] mobile-md:h-[72px] h-16 w-16 shrink-0 rounded-full object-cover"
+              priority
+            />
+          </div>
           <div className="flex w-full flex-col gap-1">
             <h1 className="text-lg leading-6 font-semibold text-white">
               PocketYou Asia Indonesia Malaysia Singapore
@@ -78,46 +82,74 @@ export default function Manage() {
       <div className="mobile-md:p-4 p-2">
         <div className="mb-6 space-y-4">
           <div className="mobile-md:flex-row flex flex-col gap-4">
-            <div className="bg-gradient-primary mobile-md:w-3/5 flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md">
+            <div
+              className="bg-gradient-primary mobile-md:w-3/5 flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md"
+              onClick={() => router.push("/manage/products")}
+            >
               <div className="flex items-center justify-between text-white">
                 <h3 className="font-medium">Products</h3>
                 <ChevronRight className="h-6 w-6 font-medium" />
               </div>
-              <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
+              <Link
+                href="/manage/products/new"
+                className="text-primary z-10 flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <PlusCircle className="h-4 w-4" /> New Product
-              </button>
+              </Link>
             </div>
 
-            <div className="bg-gradient-primary mobile-md:w-2/5 flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md">
+            <div
+              className="bg-gradient-primary mobile-md:w-2/5 flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md"
+              onClick={() => router.push("/manage/customers")}
+            >
               <div className="flex items-center justify-between text-white">
                 <h3 className="font-medium">Customers</h3>
                 <ChevronRight className="h-6 w-6 font-medium" />
               </div>
-              <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
+              <Link
+                href="/manage/customers/new"
+                className="text-primary z-10 flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <PlusCircle className="h-4 w-4" /> New Customer
-              </button>
+              </Link>
             </div>
           </div>
 
           <div className="mobile-md:flex-row flex flex-col gap-4">
-            <div className="mobile-md:w-2/5 bg-gradient-primary flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md">
+            <div
+              className="mobile-md:w-2/5 bg-gradient-primary flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md"
+              onClick={() => router.push("/manage/outlets")}
+            >
               <div className="flex items-center justify-between text-white">
                 <h3 className="font-medium">Outlets</h3>
                 <ChevronRight className="h-6 w-6 font-medium" />
               </div>
-              <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
+              <Link
+                href="/manage/outlets/new"
+                className="text-primary z-10 flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <PlusCircle className="h-4 w-4" /> New Outlet
-              </button>
+              </Link>
             </div>
 
-            <div className="mobile-md:w-3/5 bg-gradient-primary flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md">
+            <div
+              className="mobile-md:w-3/5 bg-gradient-primary flex w-full flex-col justify-center gap-4 rounded-xl p-4 shadow-md"
+              onClick={() => router.push("/manage/purchases")}
+            >
               <div className="flex items-center justify-between text-white">
                 <h3 className="font-medium">Purchase Amount</h3>
                 <ChevronRight className="h-6 w-6 font-medium" />
               </div>
-              <button className="text-primary flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium">
+              <Link
+                href="/manage/purchases/new"
+                className="text-primary z-10 flex w-full items-center justify-center gap-1 rounded-xl bg-white p-2 text-center text-xs font-medium"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <PlusCircle className="h-4 w-4" /> New Amount
-              </button>
+              </Link>
             </div>
           </div>
         </div>

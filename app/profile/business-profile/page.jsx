@@ -4,6 +4,7 @@ import Image from "next/image";
 import InformationText from "@/components/commons/InformationText";
 import BackNavigation from "@/components/layouts/BackNavigation";
 import { Camera, CircleAlert, SquarePen } from "lucide-react";
+import BlankProfilePicture from "@/public/images/blank-profile-picture.png";
 
 const BusinessProfile = () => {
   return (
@@ -12,14 +13,14 @@ const BusinessProfile = () => {
 
       <div className="flex flex-col items-center justify-center gap-4 px-4 pt-2 pb-4">
         <div className="relative">
-          <Image
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
-            alt="Profile"
-            width={100}
-            height={100}
-            className="border-primary rounded-full border-2"
-            priority
-          />
+          <div className="bg-gradient-border-primary shrink-0 rounded-full p-[3px]">
+            <Image
+              src={BlankProfilePicture}
+              alt="Profile Picture"
+              className="mobile-md:w-28 mobile-md:h-28 h-20 w-20 shrink-0 rounded-full object-cover"
+              priority
+            />
+          </div>
           <button className="bg-primary absolute right-0 bottom-0 rounded-full p-1.5 text-white">
             <Camera className="h-4 w-4" />
           </button>

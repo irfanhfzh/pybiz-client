@@ -9,8 +9,9 @@ import {
   ChevronRight,
   Gem,
 } from "lucide-react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import BackNavigation from "@/components/layouts/BackNavigation";
+import BlankProfilePicture from "@/public/images/blank-profile-picture.png";
 
 // Modify menuItems to support history tracking
 const menuItems = [
@@ -33,36 +34,9 @@ const menuItems = [
 
 export default function Profile() {
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const handleLogout = () => {
     router.push("/login");
-  };
-
-  const handleMenuItemClick = (item) => {
-    // Create history array starting with current location
-    let currentHistory = [];
-
-    // Get current URL with any existing params except pathHistory
-    let currentUrl = pathname;
-    const params = new URLSearchParams(searchParams);
-    params.delete("pathHistory");
-    if (params.toString()) {
-      currentUrl += `?${params.toString()}`;
-    }
-
-    // Add current page to history
-    currentHistory.push(currentUrl);
-
-    // Add destination to history
-    currentHistory.push(item.path);
-
-    // Encode history for URL
-    const encodedHistory = encodeURIComponent(JSON.stringify(currentHistory));
-
-    // Navigate to the page with history parameter
-    router.push(`${item.path}?pathHistory=${encodedHistory}`);
   };
 
   return (
@@ -83,14 +57,14 @@ export default function Profile() {
                 </span>
               </p>
             </div>
-            <Image
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80"
-              alt="Profile"
-              width={80}
-              height={80}
-              className="rounded-full border-2 border-white"
-              priority
-            />
+            <div className="bg-gradient-border-primary shrink-0 rounded-full p-[3px]">
+              <Image
+                src={BlankProfilePicture}
+                alt="Profile Picture"
+                className="mobile-md:w-20 mobile-md:h-20 h-16 w-16 shrink-0 rounded-full object-cover"
+                priority
+              />
+            </div>
           </div>
           <button className="text-primary mobile-md:w-fit flex w-full items-center justify-between rounded-xl bg-white px-3 py-2 text-xs">
             <Gem className="mr-2 h-4 w-4" />
@@ -108,7 +82,7 @@ export default function Profile() {
           return (
             <button
               key={index}
-              onClick={() => handleMenuItemClick(item)}
+              onClick={() => router.push(item.path)}
               className={`flex w-full items-center justify-between ${isLastItem ? "" : "border-b"} p-4`}
             >
               <div className="flex items-center gap-4">

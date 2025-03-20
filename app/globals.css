@@ -138,6 +138,10 @@
     background: linear-gradient(270deg, #5c327e 0%, #9c55d5 54%, #60dff0 100%);
   }
 
+  .bg-gradient-border-primary {
+    background: linear-gradient(180deg, #9c54d5 0%, #5fe0f0 100%);
+  }
+
   .prevent-swipe {
     touch-action: pan-y pinch-zoom;
   }

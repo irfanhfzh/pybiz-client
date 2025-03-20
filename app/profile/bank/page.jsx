@@ -3,14 +3,14 @@
 import React from "react";
 import BackNavigation from "@/components/layouts/BackNavigation";
 
-const GoldBar = () => {
+const BankAccount = () => {
   return (
     <>
-      <BackNavigation title="Gold Bar" />
+      <BackNavigation title="Bank Account" />
 
-      <div>Gold Bar</div>
+      <div>Bank Account</div>
     </>
   );
 };
 
-export default GoldBar;
+export default BankAccount;
