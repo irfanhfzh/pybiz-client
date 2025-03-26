@@ -45,7 +45,7 @@ export default function Profile() {
 
       <div className="bg-gradient-primary mx-4 mt-2 mb-4 rounded-2xl p-6">
         <div className="flex h-full flex-col justify-between gap-2">
-          <div className="flex items-start gap-2">
+          <div className="flex items-start justify-between gap-2">
             <div className="flex flex-col justify-between">
               <h1 className="text-lg font-semibold text-white">
                 PocketYou Asia Indonesia Malaysia Singapore

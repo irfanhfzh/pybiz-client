@@ -37,9 +37,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icons/favicon.ico" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
-      <body className={`${inter.className} flex h-dvh items-center justify-center antialiased`}>
+      <body
+        className={`${inter.className} flex h-dvh items-center justify-center antialiased`}
+      >
         <DisableTabKey />
-        <main className="h-full w-full max-w-md overflow-y-auto pb-[86px] shadow-md">
+        <main className="h-full w-full max-w-full overflow-y-auto pb-[86px] shadow-md">
           <ClientLayout>
             <SplashScreen />
             <PWAInstallPrompt />

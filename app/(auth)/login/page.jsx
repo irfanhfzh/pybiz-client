@@ -50,7 +50,7 @@ const LoginPage = () => {
     <div className="bg-primary flex flex-col">
       <div className="w-full flex-1 p-4">
         <div
-          className="relative mx-auto w-full max-w-md"
+          className="relative mx-auto w-full max-w-full"
           style={{ height: `calc(100dvh - ${formHeight}px)` }}
         >
           <Image

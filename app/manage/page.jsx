@@ -58,23 +58,27 @@ export default function Manage() {
               </p>
             </div>
           </div>
-          <div className="flex w-full items-center justify-evenly gap-2">
-            <a
-              href="#"
-              className="flex items-center gap-2 overflow-hidden rounded-xl bg-white p-2 text-xs text-slate-600"
-            >
-              <p className="inline-flex truncate whitespace-nowrap">
-                https://sites.pybiz.com/kedaimakanmak...
-              </p>
-              <Share2 className="text-primary h-4 w-4 shrink-0" />
-            </a>
-            <a
-              href="#"
-              className="bg-secondary flex items-center gap-2 rounded-xl p-2 text-xs text-white"
-            >
-              <Download className="h-4 w-4" />
-              <p className="whitespace-nowrap">QR BIZ Link</p>
-            </a>
+          <div className="mobile-md:flex-row flex w-full flex-col items-center justify-evenly gap-2">
+            <div className="mobile-md:w-3/5 w-full sm:w-4/5">
+              <a
+                href="#"
+                className="flex w-full items-center gap-2 rounded-xl bg-white p-2 text-xs text-slate-600"
+              >
+                <p className="flex-1 truncate overflow-hidden whitespace-nowrap">
+                  https://sites.pybiz.com/loremipsumdolorsitametguldelropanpangemanindonesia5australia1
+                </p>
+                <Share2 className="text-primary h-4 w-4 shrink-0" />
+              </a>
+            </div>
+            <div className="mobile-md:w-2/5 w-full sm:w-1/5">
+              <a
+                href="#"
+                className="bg-secondary flex items-center justify-center gap-2 rounded-xl p-2 text-xs text-white"
+              >
+                <Download className="h-4 w-4" />
+                <p className="whitespace-nowrap">QR BIZ Link</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>

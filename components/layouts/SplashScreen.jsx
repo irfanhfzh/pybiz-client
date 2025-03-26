@@ -85,7 +85,7 @@ const SplashScreen = () => {
   return (
     <>
       <div
-        className={`fixed inset-0 z-50 mx-auto flex w-full max-w-md items-center justify-center bg-white ${
+        className={`fixed inset-0 z-50 mx-auto flex w-full max-w-full items-center justify-center bg-white ${
           initialLoading ? "block" : "hidden"
         }`}
       >
@@ -101,7 +101,7 @@ const SplashScreen = () => {
       </div>
 
       <div
-        className={`fixed inset-0 z-40 mx-auto flex w-full max-w-md items-start justify-center ${
+        className={`fixed inset-0 z-40 mx-auto flex w-full max-w-full items-start justify-center ${
           !initialLoading && mainLoading
             ? "block"
             : "pointer-events-none opacity-0 transition-opacity duration-300"

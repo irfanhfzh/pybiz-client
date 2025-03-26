@@ -36,7 +36,7 @@ const BottomNavigation = () => {
   );
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-30 mx-auto w-full max-w-md bg-white">
+    <nav className="fixed right-0 bottom-0 left-0 z-30 mx-auto w-full max-w-full bg-white">
       <div className="border-t border-slate-200 px-2 py-2">
         <div className="relative flex items-end justify-evenly">
           {navigation.map((item) => {
