@@ -58,7 +58,9 @@ const ModalBottom = ({
           {description && (
             <p className="text-center text-sm text-slate-500">{description}</p>
           )}
-          {children}
+          <div className="my-4 h-80 space-y-4 overflow-y-auto py-2">
+            {children}
+          </div>
           <div className="flex flex-col gap-2">
             <Button
               variant="default"

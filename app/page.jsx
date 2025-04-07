@@ -431,39 +431,37 @@ export default function Home() {
         description="At least one feature must be displayed on your homepage."
         buttonText="Save Settings"
       >
-        <div className="my-4 space-y-4 overflow-y-auto py-2">
-          {features.map((feature) => (
-            <div
-              key={feature.id}
-              className={`relative rounded-xl border-2 p-4 transition-colors ${
-                selectedFeatures.includes(feature.id)
-                  ? "border-primary"
-                  : "border-muted"
-              }`}
-              onClick={() => toggleFeature(feature.id)}
-            >
-              <div className="flex w-full items-center justify-between gap-4">
-                <div
-                  className={`${feature.iconColor} bg-background flex items-center gap-2 rounded-xl p-2`}
-                >
-                  {feature.icon}
-                  <h3 className="font-medium">{feature.title}</h3>
-                </div>
-                <div
-                  className={`flex h-6 w-6 items-center justify-center rounded-full border-2 ${
-                    selectedFeatures.includes(feature.id)
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-muted"
-                  }`}
-                >
-                  {selectedFeatures.includes(feature.id) && (
-                    <Check className="h-4 w-4" />
-                  )}
-                </div>
+        {features.map((feature) => (
+          <div
+            key={feature.id}
+            className={`relative rounded-xl border-2 p-4 transition-colors ${
+              selectedFeatures.includes(feature.id)
+                ? "border-primary"
+                : "border-muted"
+            }`}
+            onClick={() => toggleFeature(feature.id)}
+          >
+            <div className="flex w-full items-center justify-between gap-4">
+              <div
+                className={`${feature.iconColor} bg-background flex items-center gap-2 rounded-xl p-2`}
+              >
+                {feature.icon}
+                <h3 className="font-medium">{feature.title}</h3>
+              </div>
+              <div
+                className={`flex h-6 w-6 items-center justify-center rounded-full border-2 ${
+                  selectedFeatures.includes(feature.id)
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-muted"
+                }`}
+              >
+                {selectedFeatures.includes(feature.id) && (
+                  <Check className="h-4 w-4" />
+                )}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </ModalBottom>
 
       <ModalBottom
